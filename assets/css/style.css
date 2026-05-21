@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap');
 
+/* lamon milk fonts for carolina skiff*/
+
+@font-face {
+    font-family: 'black-lamon-milk';
+    src: url('/assets/fonts/lemonmilk/LemonMilkbold.otf');
+}
+@font-face {
+    font-family: 'light-lamon-milk';
+    src: url('/assets/fonts/lemonmilk/LemonMilklight.otf');
+}
+@font-face {
+    font-family: 'bold-lamon-milk';
+    src: url('/assets/fonts/lemonmilk/LemonMilk.otf');
+}
+
 /* ============================================================
    YACHT SALES WEST — HOME PAGE CSS
    Design: Figma node 1:2
