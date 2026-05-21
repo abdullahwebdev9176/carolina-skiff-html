@@ -1,26 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap');
-
-/* lamon milk fonts for carolina skiff*/
-
-@font-face {
-    font-family: 'black-lamon-milk';
-    src: url('/assets/fonts/lemonmilk/LemonMilkbold.otf');
-}
-@font-face {
-    font-family: 'light-lamon-milk';
-    src: url('/assets/fonts/lemonmilk/LemonMilklight.otf');
-}
-@font-face {
-    font-family: 'bold-lamon-milk';
-    src: url('/assets/fonts/lemonmilk/LemonMilk.otf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800&display=swap');
 
 /* ============================================================
-   YACHT SALES WEST — HOME PAGE CSS
+   CAROLINA SKIFF — HOME PAGE CSS
    Design: Figma node 1:2
-   Colors: Blue #042C65 | Blackish Blue #000B1B | Slate #333
-   Font: Mona Sans (Google Fonts)
+   Colors: Navy #252855 | Aqua #0DB7F2 | Slate #ABB8CB | EE #EEEEEE
+   Fonts: Lemon Milk (headings, local) | Maven Pro (body, Google)
    ============================================================ */
+
+/* --- Lemon Milk (local @font-face) --- */
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/lemonmilk/LemonMilklight.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/lemonmilk/LemonMilk.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('../fonts/lemonmilk/LemonMilkbold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* --- Reset --- */
 * {
@@ -29,3 +39,1562 @@
     box-sizing: border-box;
 }
 
+:root {
+    --cs-navy: #252855;
+    --cs-aqua: #0DB7F2;
+    --cs-slate: #ABB8CB;
+    --cs-ee: #EEEEEE;
+    --cs-black: #000000;
+    --cs-white: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Maven Pro", sans-serif;
+    color: var(--cs-black);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES  (shared / reused across all sections)
+   ============================================================ */
+.csH1 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 88px;
+    text-transform: uppercase;
+}
+
+.csH2 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    text-transform: uppercase;
+}
+
+.csH3 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+.csH4 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+.csEyebrow {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.csPara {
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.16px;
+}
+
+/* --- Colour helpers --- */
+.csNavyText {
+    color: var(--cs-navy);
+}
+
+.csWhiteText {
+    color: #fff;
+}
+
+.csAquaText {
+    color: var(--cs-aqua);
+}
+
+.csBlackText {
+    color: var(--cs-black);
+}
+
+.csGhostText {
+    color: var(--cs-ee);
+}
+
+/* --- Misc small helpers --- */
+.csTextBold {
+    font-weight: 700;
+}
+
+.csGhostHeading {
+    text-align: center;
+}
+
+/* ============================================================
+   BUTTONS  (shared / reused)
+   ============================================================ */
+.csBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.csBtnWhite {
+    background-color: #fff;
+    color: var(--cs-navy);
+    height: 48px;
+    padding: 0 28px;
+}
+
+.csBtnWhite:hover {
+    background-color: var(--cs-aqua);
+    color: #fff;
+}
+
+.csBtnNavy {
+    background-color: var(--cs-navy);
+    color: #fff;
+    height: 64px;
+    padding: 0 32px;
+}
+
+.csBtnNavy:hover {
+    background-color: var(--cs-aqua);
+}
+
+.csBtnOutline {
+    background-color: transparent;
+    color: var(--cs-navy);
+    border-color: var(--cs-navy);
+    height: 72px;
+    padding: 0 36px;
+}
+
+.csBtnOutline:hover {
+    background-color: var(--cs-navy);
+    color: #fff;
+}
+
+/* --- Circular arrow buttons --- */
+.csArrowBtn {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.csArrowBtn:hover {
+    background-color: #fff;
+    color: var(--cs-navy);
+}
+
+.csArrowBtnLg {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--cs-navy);
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.csArrowBtnLg:hover {
+    background-color: var(--cs-aqua);
+}
+
+/* ============================================================
+   LAYOUT CONTAINER
+   ============================================================ */
+.csContainer {
+    max-width: 1680px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ============================================================
+   LOGO (text wordmark)
+   ============================================================ */
+.csLogo {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1;
+    color: #fff;
+}
+
+.csLogoLine1 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 3.5px;
+}
+
+.csLogoLine2 {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 29px;
+    letter-spacing: 11px;
+    margin-top: 4px;
+}
+
+.csLogoNavy {
+    color: var(--cs-navy);
+}
+
+/* ============================================================
+   HEADER — top bar + nav + side menu
+   ============================================================ */
+.csTopBar {
+    background-color: var(--cs-navy);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.csTopBarText {
+    font-family: "Maven Pro", sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.csNav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background-color: var(--cs-navy);
+    height: 80px;
+}
+
+.csNavInner {
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+}
+
+.csNavLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.csNavLink {
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+.csNavLink:hover {
+    color: var(--cs-aqua);
+}
+
+.csNavRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 32px;
+}
+
+.csHamburger {
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.csHamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cs-aqua);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.csNavToggleMobile {
+    display: none;
+}
+
+/* --- Side menu --- */
+.csMenuOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 300;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.csMenuOverlay.csMenuActive {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.csSideMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 88vw;
+    height: 100vh;
+    background-color: var(--cs-navy);
+    z-index: 310;
+    padding: 32px 36px;
+    overflow-y: auto;
+    transform: translateX(110%);
+    transition: transform 0.35s ease;
+}
+
+.csSideMenu.csMenuActive {
+    transform: translateX(0);
+}
+
+.csSideMenuTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.csSideMenuClose {
+    background: none;
+    border: none;
+    color: var(--cs-aqua);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.csSideMenuList li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.csSideMenuList li a {
+    display: block;
+    padding: 16px 0;
+    font-family: "Lemon Milk", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.csSideMenuList li a:hover {
+    color: var(--cs-aqua);
+    padding-left: 8px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.csHero {
+    position: relative;
+    width: 100%;
+    height: 760px;
+    overflow: hidden;
+}
+
+.csHeroVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.csHeroOverlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(15, 17, 40, 0.6) 0%, rgba(15, 17, 40, 0.15) 55%, rgba(15, 17, 40, 0) 100%),
+        linear-gradient(0deg, rgba(15, 17, 40, 0.45) 0%, rgba(15, 17, 40, 0) 45%);
+}
+
+.csHeroInner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.csHeroTitle {
+    max-width: 1100px;
+}
+
+.csHeroBtn {
+    margin-top: 40px;
+}
+
+/* ============================================================
+   FEATURED MODEL  (Owl carousel)
+   ============================================================ */
+.csFeatured {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.csFeaturedSlide {
+    position: relative;
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+}
+
+.csFeaturedImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.csFeaturedOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(37, 40, 85, 0.3);
+}
+
+.csFeaturedContent {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.csFeaturedContent .csH1 {
+    margin: 8px 0 28px;
+}
+
+/* Featured carousel — Owl overrides */
+.csFeaturedCarousel.owl-carousel .owl-nav {
+    margin: 0;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-prev,
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--cs-navy);
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-prev:hover,
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-next:hover {
+    background-color: var(--cs-aqua);
+}
+
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-prev {
+    left: 40px;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-nav button.owl-next {
+    right: 40px;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-dots .owl-dot span {
+    width: 34px;
+    height: 4px;
+    margin: 0;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.25s ease;
+}
+
+.csFeaturedCarousel.owl-carousel .owl-dots .owl-dot.active span {
+    background-color: #fff;
+}
+
+/* ============================================================
+   THE SKIFF LINEUP
+   ============================================================ */
+.csLineup {
+    padding: 110px 0 0;
+    background-color: #fff;
+}
+
+.csLineup .csGhostHeading {
+    margin-bottom: 56px;
+}
+
+.csSkiffRow {
+    display: flex;
+    width: 100%;
+}
+
+.csSkiffCard {
+    position: relative;
+    flex: 1;
+    height: 800px;
+    overflow: hidden;
+}
+
+.csSkiffCardImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.csSkiffCard:hover .csSkiffCardImg {
+    transform: scale(1.05);
+}
+
+.csSkiffCardOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(37, 40, 85, 0) 25%, rgba(37, 40, 85, 0.96) 80%);
+}
+
+.csSkiffCardPlain {
+    background: linear-gradient(180deg, #35386c 0%, #252855 100%);
+}
+
+.csSkiffCardBody {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 0 36px 44px;
+    text-align: center;
+}
+
+.csSkiffCardModels {
+    margin-top: 10px;
+}
+
+.csSkiffCardDesc {
+    margin-top: 14px;
+    opacity: 0.85;
+}
+
+.csSkiffCardBody .csArrowBtn {
+    margin: 24px auto 0;
+}
+
+/* --- E Series wide card --- */
+.csESeries {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+
+.csESeriesImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.csESeriesPanel {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 620px;
+    max-width: 90%;
+    margin-left: max(40px, calc((100% - 1680px) / 2 + 40px));
+    background-color: rgba(37, 40, 85, 0.9);
+    padding: 44px 48px;
+    border-radius: 4px;
+}
+
+.csESeriesHead {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.csESeriesHead .csH3 {
+    flex: 1;
+}
+
+.csESeriesPanel .csSkiffCardModels {
+    margin-top: 16px;
+}
+
+.csESeriesPanel .csSkiffCardDesc {
+    margin-top: 12px;
+}
+
+/* ============================================================
+   GET HOOKED ON THE LIFESTYLE
+   ============================================================ */
+.csGetHooked {
+    padding: 120px 0;
+    background-color: #fff;
+}
+
+.csGetHookedInner {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.csGetHookedBadge {
+    flex-shrink: 0;
+    width: 440px;
+}
+
+.csGetHookedBadge img {
+    width: 100%;
+    display: block;
+}
+
+.csGetHookedText {
+    flex: 1;
+}
+
+.csGetHookedText .csH2 {
+    margin-top: 8px;
+}
+
+.csGetHookedText .csPara {
+    margin-top: 22px;
+}
+
+.csGetHookedText .csPara:first-of-type {
+    margin-top: 32px;
+}
+
+/* ============================================================
+   SEA TOW BANNER
+   ============================================================ */
+.csSeatow {
+    padding: 0 0 110px;
+    background-color: #fff;
+}
+
+.csSeatowBanner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--cs-navy);
+    border-radius: 6px;
+    padding: 0 48px;
+    height: 160px;
+}
+
+.csSeatowLogo {
+    flex-shrink: 0;
+    width: 230px;
+}
+
+.csSeatowLogo img {
+    width: 100%;
+    display: block;
+}
+
+.csSeatowCenter {
+    flex: 1;
+    text-align: center;
+}
+
+.csSeatowCenter .csPara {
+    margin-top: 6px;
+    opacity: 0.85;
+}
+
+/* ============================================================
+   CHOOSE YOUR ADVENTURE
+   ============================================================ */
+.csAdventure {
+    padding: 110px 0 0;
+    background-color: #fff;
+}
+
+.csAdventure .csGhostHeading {
+    margin-bottom: 56px;
+}
+
+.csAdventureRow {
+    display: flex;
+    width: 100%;
+}
+
+.csAdventureCard {
+    position: relative;
+    flex: 1;
+    height: 800px;
+    overflow: hidden;
+}
+
+.csAdventureImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.csAdventureCard:hover .csAdventureImg {
+    transform: scale(1.05);
+}
+
+.csAdventureOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(37, 40, 85, 0) 35%, rgba(37, 40, 85, 0.9) 85%);
+}
+
+.csAdventureBody {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 0 48px 56px;
+    text-align: center;
+}
+
+.csAdventureBody .csPara {
+    margin-top: 14px;
+    opacity: 0.9;
+}
+
+.csAdventureBody .csArrowBtn {
+    margin: 26px auto 0;
+}
+
+.csAdventureBtns {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 80px 0;
+}
+
+.csAdventureBtns .csBtnOutline {
+    width: 480px;
+    max-width: 100%;
+}
+
+/* ============================================================
+   LOCATE A DEALER
+   ============================================================ */
+.csDealer {
+    background-color: #fff;
+    padding-bottom: 110px;
+}
+
+.csDealerRow {
+    display: flex;
+    max-width: 1720px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+.csDealerImageWrap {
+    flex: 1;
+    overflow: hidden;
+}
+
+.csDealerImageWrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.csDealerPanel {
+    flex: 1;
+    background-color: var(--cs-navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 72px 80px;
+}
+
+.csDealerPanel .csEyebrow {
+    margin-top: 32px;
+}
+
+.csDealerPanel .csPara {
+    margin-top: 16px;
+    max-width: 620px;
+}
+
+.csZipForm {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    max-width: 100%;
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 6px 6px 6px 24px;
+}
+
+.csZipInput {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    height: 52px;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 16px;
+    color: var(--cs-navy);
+}
+
+.csZipInput::placeholder {
+    color: rgba(37, 40, 85, 0.55);
+}
+
+.csZipBtn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--cs-navy);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.csZipBtn:hover {
+    background-color: var(--cs-aqua);
+}
+
+/* ============================================================
+   CAROLINA SKIFF STORY
+   ============================================================ */
+.csStory {
+    padding: 0 0 110px;
+    background-color: #fff;
+}
+
+.csStoryInner {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.csStoryText {
+    flex: 1;
+    max-width: 620px;
+}
+
+.csStoryText .csH2 {
+    margin-top: 8px;
+}
+
+.csStoryText .csPara {
+    margin-top: 24px;
+}
+
+.csStoryText .csBtnNavy {
+    margin-top: 36px;
+}
+
+.csStoryImageWrap {
+    flex: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.csStoryImageWrap img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================================
+   A LEGACY OF INNOVATION
+   ============================================================ */
+.csLegacy {
+    padding: 0 0 90px;
+    background-color: #fff;
+}
+
+.csLegacy .csGhostHeading {
+    margin-bottom: 48px;
+}
+
+.csLegacyRow {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.csLegacyCard {
+    position: relative;
+    flex: 1;
+    height: 880px;
+    overflow: hidden;
+}
+
+.csLegacyImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.csLegacyCard:hover .csLegacyImg {
+    transform: scale(1.05);
+}
+
+.csLegacyBand {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 320px;
+    background-color: var(--cs-navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 64px;
+}
+
+.csLegacyBandHead {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.csLegacyBandHead .csH3 {
+    flex: 1;
+}
+
+.csLegacyBandArrow {
+    font-size: 22px;
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+.csLegacyCard:hover .csLegacyBandArrow {
+    color: var(--cs-aqua);
+}
+
+.csLegacyBand .csPara {
+    margin-top: 12px;
+    opacity: 0.8;
+}
+
+/* ============================================================
+   QUICK LINKS
+   ============================================================ */
+.csQuickLinks {
+    padding: 0 0 100px;
+    background-color: #fff;
+}
+
+.csQuickLinksRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.csQuickLinksRow .csBtnNavy {
+    width: 280px;
+    max-width: 100%;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+/* --- Newsletter band --- */
+.csFooterNewsletter {
+    background-color: var(--cs-slate);
+    padding: 64px 0;
+}
+
+.csFooterNewsletter .csGhostHeading {
+    margin-bottom: 32px;
+}
+
+.csNewsletterForm {
+    display: flex;
+    gap: 16px;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.csNewsletterForm input {
+    height: 64px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    padding: 0 24px;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 16px;
+    color: var(--cs-black);
+}
+
+.csNewsletterForm input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.csNewsletterName {
+    flex: 1;
+}
+
+.csNewsletterZip {
+    flex: 1;
+}
+
+.csNewsletterEmail {
+    flex: 2;
+}
+
+.csNewsletterForm .csBtnNavy {
+    flex-shrink: 0;
+    padding: 0 40px;
+}
+
+/* --- Social band --- */
+.csFooterSocial {
+    background-color: var(--cs-navy);
+    padding: 52px 0;
+    text-align: center;
+}
+
+.csSocialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.csSocialIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--cs-aqua);
+    color: #fff;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.csSocialIcon:hover {
+    opacity: 0.8;
+}
+
+.csFooterSocial .csFollowLabel {
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 22px;
+}
+
+.csFooterSocial .csH3 {
+    margin-top: 8px;
+}
+
+/* --- Footer main --- */
+.csFooterMain {
+    background-color: #fff;
+    padding: 64px 0 56px;
+}
+
+.csFooterMainInner {
+    display: flex;
+    gap: 40px;
+}
+
+.csFooterBrand {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.csFooterBadge {
+    width: 150px;
+    margin-top: 32px;
+}
+
+.csFooterBadge img {
+    width: 100%;
+    display: block;
+}
+
+.csFooterCol {
+    flex: 1;
+}
+
+.csFooterCol .csH4 {
+    color: var(--cs-navy);
+    margin-bottom: 20px;
+}
+
+.csFooterCol li {
+    margin-bottom: 12px;
+}
+
+.csFooterCol li a {
+    font-family: "Maven Pro", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--cs-black);
+    transition: color 0.2s ease;
+}
+
+.csFooterCol li a:hover {
+    color: var(--cs-aqua);
+}
+
+.csFooterCol li.csFooterFaded a {
+    opacity: 0.25;
+}
+
+/* --- Footer bottom --- */
+.csFooterBottom {
+    background-color: #fff;
+    border-top: 1px solid var(--cs-ee);
+    padding: 24px 40px;
+}
+
+.csFooterBottom p {
+    font-family: "Maven Pro", sans-serif;
+    font-size: 16px;
+    color: var(--cs-black);
+    text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE — <= 1200px
+   ============================================================ */
+@media (max-width: 1200px) {
+    .csH1 {
+        font-size: 60px;
+        line-height: 68px;
+    }
+
+    .csH2 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .csNavLinks {
+        gap: 26px;
+    }
+
+    .csNavRight {
+        gap: 22px;
+    }
+
+    .csGetHookedInner {
+        gap: 56px;
+    }
+
+    .csGetHookedBadge {
+        width: 340px;
+    }
+
+    .csStoryInner {
+        gap: 56px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — <= 991px  (tablet)
+   ============================================================ */
+@media (max-width: 991px) {
+
+    .csContainer,
+    .csNavInner {
+        padding: 0 24px;
+    }
+
+    /* Header */
+    .csNavLinks,
+    .csNavDealerLink {
+        display: none;
+    }
+
+    .csNavInner {
+        grid-template-columns: auto 1fr;
+    }
+
+    .csNavToggleMobile {
+        display: flex;
+    }
+
+    /* Hero */
+    .csHero {
+        height: 560px;
+    }
+
+    .csH1 {
+        font-size: 44px;
+        line-height: 52px;
+    }
+
+    .csH2 {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .csH3 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    /* Featured */
+    .csFeaturedSlide {
+        height: 560px;
+    }
+
+    .csFeaturedCarousel.owl-carousel .owl-nav button.owl-prev,
+    .csFeaturedCarousel.owl-carousel .owl-nav button.owl-next {
+        width: 52px;
+        height: 52px;
+    }
+
+    .csFeaturedCarousel.owl-carousel .owl-nav button.owl-prev {
+        left: 16px;
+    }
+
+    .csFeaturedCarousel.owl-carousel .owl-nav button.owl-next {
+        right: 16px;
+    }
+
+    /* Skiff lineup */
+    .csLineup,
+    .csAdventure {
+        padding-top: 72px;
+    }
+
+    .csSkiffRow,
+    .csAdventureRow {
+        flex-wrap: wrap;
+    }
+
+    .csSkiffCard {
+        flex: 1 1 50%;
+        height: 560px;
+    }
+
+    .csAdventureCard {
+        flex: 1 1 100%;
+        height: 520px;
+    }
+
+    .csESeries {
+        height: auto;
+        min-height: 420px;
+    }
+
+    .csESeriesPanel {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Get hooked */
+    .csGetHooked {
+        padding: 72px 0;
+    }
+
+    .csGetHookedInner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .csGetHookedBadge {
+        width: 280px;
+    }
+
+    /* Sea Tow */
+    .csSeatow {
+        padding-bottom: 72px;
+    }
+
+    .csSeatowBanner {
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        padding: 36px 32px;
+        text-align: center;
+    }
+
+    /* Adventure buttons */
+    .csAdventureBtns {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 56px 0;
+    }
+
+    /* Dealer */
+    .csDealer {
+        padding-bottom: 72px;
+    }
+
+    .csDealerRow {
+        flex-direction: column;
+    }
+
+    .csDealerImageWrap {
+        min-height: 320px;
+    }
+
+    .csDealerPanel {
+        padding: 56px 32px;
+    }
+
+    /* Story */
+    .csStory {
+        padding-bottom: 72px;
+    }
+
+    .csStoryInner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .csStoryText {
+        max-width: 100%;
+    }
+
+    .csStoryImageWrap {
+        width: 100%;
+    }
+
+    /* Legacy */
+    .csLegacyRow {
+        flex-direction: column;
+    }
+
+    .csLegacyCard {
+        height: 560px;
+    }
+
+    .csLegacyBand {
+        height: 240px;
+        padding: 0 36px;
+    }
+
+    /* Footer */
+    .csNewsletterForm {
+        flex-wrap: wrap;
+    }
+
+    .csNewsletterName,
+    .csNewsletterZip {
+        flex: 1 1 calc(50% - 8px);
+    }
+
+    .csNewsletterEmail {
+        flex: 1 1 100%;
+    }
+
+    .csNewsletterForm .csBtnNavy {
+        flex: 1 1 100%;
+    }
+
+    .csFooterMainInner {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .csFooterBrand {
+        width: 100%;
+    }
+
+    .csFooterCol {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — <= 575px  (mobile)
+   ============================================================ */
+@media (max-width: 575px) {
+    .csH1 {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .csH2 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    .csH3 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .csTopBarText {
+        font-size: 12px;
+    }
+
+    .csHero {
+        height: 480px;
+    }
+
+    .csFeaturedSlide {
+        height: 480px;
+    }
+
+    .csSkiffCard {
+        flex: 1 1 100%;
+        height: 480px;
+    }
+
+    .csSkiffCardBody,
+    .csAdventureBody {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .csESeriesPanel {
+        padding: 32px 24px;
+    }
+
+    .csGetHookedBadge {
+        width: 220px;
+    }
+
+    .csDealerPanel {
+        padding: 48px 24px;
+    }
+
+    .csStoryImageWrap img {
+        height: 320px;
+    }
+
+    .csLegacyCard {
+        height: 460px;
+    }
+
+    .csLegacyBand {
+        padding: 0 24px;
+    }
+
+    .csQuickLinksRow .csBtnNavy {
+        width: 100%;
+    }
+
+    .csBtnOutline {
+        height: 64px;
+    }
+
+    .csFooterCol {
+        flex: 1 1 100%;
+    }
+
+    .csFooterBottom p {
+        font-size: 13px;
+    }
+}
